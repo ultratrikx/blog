@@ -4,6 +4,44 @@ publishedAt: '2024-05-28'
 summary: 'a log of trials and tribulations for my gr. 11 comp. sci. class FPT'
 ---
 ## 2024-05-31
+Today I worked on some of the game mechanics and tried to implement some physics (but failed spectacularly) so instead, all I have for today is they basic game drawn out where 5 circles for each player are randomly generated without overlapping each other. I did this by doing random generation and using a function called add_penguin to verify if the randomly generated penguin location conflicts with an already existing penguin location or is in 15px of an existing one. 
+
+This is what the code looks like:
+```python
+# Define the iceberg and penguins
+ICEBERG_SIZE = 500
+iceberg = pygame.Rect(WIDTH // 2 - ICEBERG_SIZE // 2, HEIGHT // 2 - ICEBERG_SIZE // 2, ICEBERG_SIZE, ICEBERG_SIZE)
+
+# Separate lists for each player's penguins and their properties
+penguin_rects_p1 = []
+penguin_rects_p2 = []
+
+def add_penguin(penguin_list):
+    while True:
+        x = random.randint(iceberg.x, iceberg.x + ICEBERG_SIZE - 40)  # Subtract 40 to account for the penguin's size
+        y = random.randint(iceberg.y, iceberg.y + ICEBERG_SIZE - 40)  # Subtract 40 to account for the penguin's size
+        new_penguin = pygame.Rect(x, y, 40, 40)  # Penguin size is now 40x40
+        too_close = False
+        for penguin in penguin_list:
+            if new_penguin.colliderect(penguin.inflate(60, 60)):
+                too_close = True
+                break
+        if not too_close:
+            penguin_list.append(new_penguin)
+            break
+
+for i in range(5):
+    add_penguin(penguin_rects_p1)
+    add_penguin(penguin_rects_p2)
+print(penguin_rects_p1, penguin_rects_p2)
+```
+
+And here is the penguins drawn out!
+
+![]()
+
+
+## 2024-05-31
 Finished the game menues with updated instructions screen! Essentially just rendering an image asset because drawing out all the text in pygame is a tedious process, and wastes time that could be spent on more pressing tasks like, physics and collision!
 
 Here's how it looks.
