@@ -3,6 +3,34 @@ title: 'Knockout Penguins Game Dev. Log'
 publishedAt: '2024-05-28'
 summary: 'a log of trials and tribulations for my gr. 11 comp. sci. class FPT'
 ---
+## 2024-06-11
+After some hard hours, I have a functioning mini-golf esque game. While it is basic in functionality, the next steps are to create various maps and potentially autogenerate maps with increasing difficulty.
+
+Here's how it looks so far:
+![]()
+
+There is also some nice code that I'm proud of which looks calculates the angular collision with the ball and the wall. Heres what it looks like:
+```python
+if not (
+        ICEBERG.left + ball_radius < ball_x < ICEBERG.right - ball_radius and ICEBERG.top + ball_radius < ball_y < ICEBERG.bottom - ball_radius):
+    # Determine which wall the ball has hit
+    if ball_x <= ICEBERG.left + ball_radius:  # Left wall
+        normal = (-1, 0)
+    elif ball_x >= ICEBERG.right - ball_radius:  # Right wall
+        normal = (1, 0)
+    elif ball_y <= ICEBERG.top + ball_radius:  # Top wall
+        normal = (0, -1)
+    else:  # Bottom wall
+        normal = (0, 1)
+
+    # Calculate the dot product of the ball's velocity and the wall's normal
+    dot_product = ball_x_speed * normal[0] + ball_y_speed * normal[1]
+
+    # Reflect the ball's velocity along the wall's normal
+    ball_x_speed -= 2 * dot_product * normal[0]
+    ball_y_speed -= 2 * dot_product * normal[1]
+```
+
 ## 2024-06-10
 Due to the difficulties in getting the physics of the game to work within the criteria of the project, I am shifting the game's functionality to be a defend the iceberg experience where the user has to out click the randomly spawning penguins.
 
