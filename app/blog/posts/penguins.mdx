@@ -3,6 +3,22 @@ title: 'Knockout Penguins Game Dev. Log'
 publishedAt: '2024-05-28'
 summary: 'a log of trials and tribulations for my gr. 11 comp. sci. class FPT'
 ---
+## 2024-06-16
+Day before final submission, I've cleaned up all the code, added in sound effects for when the penguin hits the wall. I've also cleaned up the code and optimized inefficienies in the physics handling. I also added the image for the penguin and added a highscore feature. Oh and I cleaned up the art and visual assets. Phew! Finally the game is DONE!
+
+## 2024-06-14
+Today was just a day for creating the custom maps. I've created 4 maps, each increasing in difficulty (or at least thats the plan). Currently they've just ended up as a hodgepodge mess, but I will be working over the weekend to create nice maps to play in.
+
+## 2024-06-13
+Added the slush patches to slow the penguin down, it was a pretty simple process as the friction and deceleration value of the penguin is just increased. Other notable changes today include creating map reading functionality. I'm storing the values of the walls and the slush patches in simple text files and opening/reading them when the current level is changed. 
+
+## 2024-06-12
+Today I spent most of my time working on fixing the physics handling. Right now I am detecting the collisions with the edges of the iceberg pretty easily because it's a simple rectangular wall. The collisions detections with the walls is trickier because there are edges and corners which seem to throw simple rect collisions off hand.
+
+So to solve these issues I found a new way to detect collisions by calculating the distance between the edge point of the circle with the line edge of the wall. If this value is less than the radius of the circle, it means there has been a collision. This seems to work well and is relatively simple enough that I can code it in. There still some slight issues when dealing with collisions in the corners, but its reliable 90% of the time so I am going to stick with this.
+
+Thats pretty much all I did today, next up is to create the slush patches and start creating maps.
+
 ## 2024-06-11
 After some hard hours, I have a functioning mini-golf esque game. While it is basic in functionality, the next steps are to create various maps and potentially autogenerate maps with increasing difficulty.
 
