@@ -33,14 +33,12 @@ function Table({ data }: TableProps) {
     );
 }
 
-interface CustomLinkProps
-    extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-    href?: string;
-}
+// Properly type the link component to match MDXRemote expectations
+function CustomLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+    const { href, children, ...rest } = props;
 
-function CustomLink({ href, children, ...rest }: CustomLinkProps) {
     if (!href) {
-        return <span {...rest}>{children}</span>;
+        return <a {...rest}>{children}</a>;
     }
 
     if (href.startsWith("/")) {
@@ -66,23 +64,24 @@ function CustomLink({ href, children, ...rest }: CustomLinkProps) {
     );
 }
 
-interface RoundedImageProps extends React.ComponentProps<typeof Image> {
-    alt: string;
+// Updated to match Next.js Image component props
+function RoundedImage(props: React.ComponentProps<typeof Image>) {
+    return <Image className="rounded-lg" {...props} />;
 }
 
-function RoundedImage({ alt, ...rest }: RoundedImageProps) {
-    return <Image alt={alt} className="rounded-lg" {...rest} />;
-}
+// Fix the code component to match MDXRemote expectations
+function Code(props: React.HTMLAttributes<HTMLElement>) {
+    const { children, ...rest } = props;
 
-interface CodeProps {
-    children: React.ReactNode;
-    [key: string]: any;
-}
+    // Safe handling of children content
+    const content = children
+        ? typeof children === "string"
+            ? children
+            : String(children)
+        : "";
+    const codeHTML = highlight(content);
 
-function Code({ children, ...props }: CodeProps) {
-    const codeContent = typeof children === "string" ? children : "";
-    const codeHTML = highlight(codeContent);
-    return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
+    return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...rest} />;
 }
 
 function slugify(str: string): string {
@@ -96,32 +95,31 @@ function slugify(str: string): string {
         .replace(/\-\-+/g, "-");
 }
 
-interface HeadingProps {
-    children: string;
-}
-
+// Update heading components to match MDX expectations
 function createHeading(level: number) {
-    const Heading = ({ children }: HeadingProps) => {
-        const slug = slugify(children);
-        return React.createElement(
-            `h${level}`,
-            { id: slug },
-            [
-                React.createElement("a", {
-                    href: `#${slug}`,
-                    key: `link-${slug}`,
-                    className: "anchor",
-                }),
-            ],
-            children
+    return function Heading(props: React.HTMLAttributes<HTMLHeadingElement>) {
+        const { children, ...rest } = props;
+        const text = children
+            ? typeof children === "string"
+                ? children
+                : String(children)
+            : "";
+        const slug = slugify(text);
+
+        const TagName = `h${level}` as keyof JSX.IntrinsicElements;
+
+        return (
+            <TagName id={slug} {...rest}>
+                {children}
+                <a href={`#${slug}`} className="anchor">
+                    <span className="anchor-icon">#</span>
+                </a>
+            </TagName>
         );
     };
-
-    Heading.displayName = `Heading${level}`;
-
-    return Heading;
 }
 
+// Define components properly for MDXRemote
 const components = {
     h1: createHeading(1),
     h2: createHeading(2),
@@ -129,32 +127,25 @@ const components = {
     h4: createHeading(4),
     h5: createHeading(5),
     h6: createHeading(6),
-    Image: RoundedImage,
+    img: RoundedImage, // Changed from Image to img to match MDX expectations
     a: CustomLink,
     code: Code,
-    Table,
+    table: (props: React.TableHTMLAttributes<HTMLTableElement>) => (
+        <table {...props} />
+    ),
+    // Don't include custom components that MDXRemote doesn't expect
 };
 
 interface CustomMDXProps {
     source: string;
     components?: Record<string, React.ComponentType<any>>;
-    options?: {
-        parseFrontmatter?: boolean;
-        scope?: Record<string, unknown>;
-        mdxOptions?: {
-            remarkPlugins?: any[];
-            rehypePlugins?: any[];
-            format?: "mdx" | "md";
-            development?: boolean;
-        };
-    };
 }
 
 export function CustomMDX(props: CustomMDXProps) {
     return (
         <MDXRemote
-            {...props}
-            components={{ ...components, ...(props.components || {}) }}
+            source={props.source}
+            components={components as any} // Use type assertion as temporary fix
         />
     );
 }
