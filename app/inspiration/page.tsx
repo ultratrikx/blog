@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Inspiration | rohanth marem",
+    title: "inspiration | rohanth marem",
     description: "People, ideas, and works that inspire me",
 };
 
@@ -9,7 +9,7 @@ export default function InspirationPage() {
     return (
         <section>
             <h1 className="font-medium text-2xl mb-8 tracking-tighter">
-                Inspiration
+                inspiration
             </h1>
             <div className="prose prose-neutral dark:prose-invert">
                 <h2>Creative Influences</h2>

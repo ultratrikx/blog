@@ -23,9 +23,7 @@ export default function HomePage() {
                         thoughts and experiences.
                     </p>
                     <p className="dark:text-neutral-200">
-                        currently based in [Toronto]. I enjoy exploring the
-                        intersection of [your interests, e.g., "technology and
-                        design" or "AI and healthcare"].
+                        currently based in Toronto.
                     </p>
                     <p className="dark:text-neutral-200">
                         feel free to reach out to me on{" "}

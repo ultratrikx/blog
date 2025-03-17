@@ -5,7 +5,7 @@ import FilteredProjects from "./FilteredProjects";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-    title: "Portfolio | rohanth marem",
+    title: "portfolio | rohanth marem",
     description: "My portfolio of projects and work",
 };
 
@@ -16,12 +16,11 @@ export default async function PortfolioPage() {
     return (
         <section>
             <h1 className="font-medium text-2xl mb-8 tracking-tighter">
-                Portfolio
+                portfolio
             </h1>
             <div className="mb-6 prose prose-neutral dark:prose-invert">
                 <p className="text-neutral-800 dark:text-neutral-200">
-                    Here's a collection of my projects and work. Click on any
-                    project to learn more.
+                    a collection of my projects and work.
                 </p>
             </div>
 

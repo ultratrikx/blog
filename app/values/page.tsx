@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Values | rohanth marem",
+    title: "values | rohanth marem",
     description: "My personal and professional values",
 };
 
@@ -9,7 +9,7 @@ export default function ValuesPage() {
     return (
         <section>
             <h1 className="font-medium text-2xl mb-8 tracking-tighter">
-                Values
+                values
             </h1>
             <div className="prose prose-neutral dark:prose-invert">
                 <p>

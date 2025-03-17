@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Resume | rohanth marem",
+    title: "resume | rohanth marem",
     description: "My professional experience and skills",
 };
 
@@ -9,7 +9,7 @@ export default function ResumePage() {
     return (
         <section>
             <h1 className="font-medium text-2xl mb-8 tracking-tighter">
-                Resume
+                resume
             </h1>
             <div className="prose prose-neutral dark:prose-invert">
                 <div className="mb-8">
