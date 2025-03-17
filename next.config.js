@@ -14,6 +14,8 @@ const nextConfig = {
         // Allow unoptimized images in development for faster builds
         unoptimized: process.env.NODE_ENV === "development",
     },
+    // // Add Vercel Analytics optimization hint
+    // analyticsId: process.env.VERCEL_ANALYTICS_ID,
     // More efficient webpack configuration
     webpack(config) {
         // Disable verbose image-related logging

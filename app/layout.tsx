@@ -57,7 +57,14 @@ export default function RootLayout({
                     <Navbar />
                     {children}
                     <Footer />
-                    <Analytics />
+                    <Analytics
+                        debug={process.env.NODE_ENV === "development"}
+                        beforeSend={(event) => {
+                            // You can modify events before they're sent
+                            // For example: exclude certain pages
+                            return event;
+                        }}
+                    />
                     <SpeedInsights />
                 </main>
 
