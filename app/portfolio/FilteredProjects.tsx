@@ -99,7 +99,7 @@ function ProjectCard({ project }: { project: Project }) {
 export default function FilteredProjects({ projects }: FilteredProjectsProps) {
     const searchParams = useSearchParams();
     const tagFilter =
-        searchParams.get("tags")?.split(",").filter(Boolean) || [];
+        searchParams?.get("tags")?.split(",").filter(Boolean) || [];
 
     // Filter projects based on active tags
     const filteredProjects =

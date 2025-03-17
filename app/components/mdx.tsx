@@ -35,42 +35,53 @@ function Table({ data }: TableProps) {
 
 interface CustomLinkProps
     extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-    href: string;
+    href?: string;
 }
 
-function CustomLink(props: CustomLinkProps) {
-    const href = props.href;
+function CustomLink({ href, children, ...rest }: CustomLinkProps) {
+    if (!href) {
+        return <span {...rest}>{children}</span>;
+    }
 
     if (href.startsWith("/")) {
         return (
-            <Link href={href} {...props}>
-                {props.children}
+            <Link href={href} {...rest}>
+                {children}
             </Link>
         );
     }
 
     if (href.startsWith("#")) {
-        return <a {...props} />;
+        return (
+            <a href={href} {...rest}>
+                {children}
+            </a>
+        );
     }
 
-    return <a target="_blank" rel="noopener noreferrer" {...props} />;
+    return (
+        <a href={href} target="_blank" rel="noopener noreferrer" {...rest}>
+            {children}
+        </a>
+    );
 }
 
 interface RoundedImageProps extends React.ComponentProps<typeof Image> {
     alt: string;
 }
 
-function RoundedImage(props: RoundedImageProps) {
-    return <Image alt={props.alt} className="rounded-lg" {...props} />;
+function RoundedImage({ alt, ...rest }: RoundedImageProps) {
+    return <Image alt={alt} className="rounded-lg" {...rest} />;
 }
 
 interface CodeProps {
-    children: string;
+    children: React.ReactNode;
     [key: string]: any;
 }
 
 function Code({ children, ...props }: CodeProps) {
-    const codeHTML = highlight(children);
+    const codeContent = typeof children === "string" ? children : "";
+    const codeHTML = highlight(codeContent);
     return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
 }
 
