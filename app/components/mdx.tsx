@@ -138,6 +138,16 @@ const components = {
 interface CustomMDXProps {
     source: string;
     components?: Record<string, React.ComponentType<any>>;
+    options?: {
+        parseFrontmatter?: boolean;
+        scope?: Record<string, unknown>;
+        mdxOptions?: {
+            remarkPlugins?: any[];
+            rehypePlugins?: any[];
+            format?: "mdx" | "md";
+            development?: boolean;
+        };
+    };
 }
 
 export function CustomMDX(props: CustomMDXProps) {
