@@ -47,19 +47,38 @@ export default function RootLayout({
         <html
             lang="en"
             className={cx(
-                "text-black bg-white dark:text-white dark:bg-black",
+                "dark", // Default to dark mode
                 GeistSans.variable,
                 GeistMono.variable
             )}
         >
-            <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-                <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+            <body className="dark:bg-dark-900 min-h-screen">
+                <main className="max-w-2xl mx-auto p-4 md:p-8">
                     <Navbar />
                     {children}
                     <Footer />
                     <Analytics />
                     <SpeedInsights />
                 </main>
+
+                {/* Script to prevent theme flashing on load */}
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            (function() {
+                                // On page load, check localStorage for theme preference or default to dark
+                                const savedTheme = localStorage.getItem('theme');
+                                if (savedTheme) {
+                                    document.documentElement.classList.remove('light', 'dark');
+                                    document.documentElement.classList.add(savedTheme);
+                                } else {
+                                    document.documentElement.classList.add('dark');
+                                    localStorage.setItem('theme', 'dark');
+                                }
+                            })();
+                        `,
+                    }}
+                />
             </body>
         </html>
     );

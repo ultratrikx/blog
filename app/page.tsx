@@ -9,33 +9,33 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
     return (
-        <section>
+        <section className="dark:bg-dark-900">
             {/* Section 1: Introduction */}
             <div className="mb-12">
-                <h1 className="font-medium text-2xl mb-4 tracking-tighter">
+                <h1 className="font-medium text-2xl mb-4 tracking-tighter dark:text-white">
                     hey im rohanth
                 </h1>
-                <div className="prose prose-neutral dark:prose-invert">
-                    <p className="text-neutral-800 dark:text-neutral-200">
+                <div className="prose prose-invert">
+                    <p className="dark:text-neutral-200">
                         I'm a software engineer and researcher passionate about
                         technology, machine learning, and building solutions
                         that matter. Welcome to my personal corner of the
                         internet where I share my work, thoughts, and
                         experiences.
                     </p>
-                    <p className="text-neutral-800 dark:text-neutral-200">
+                    <p className="dark:text-neutral-200">
                         Currently based in [City], where I [brief statement
                         about what you do]. I enjoy exploring the intersection
                         of [your interests, e.g., "technology and design" or "AI
                         and healthcare"].
                     </p>
-                    <p className="text-neutral-800 dark:text-neutral-200">
+                    <p className="dark:text-neutral-200">
                         Feel free to reach out to me on{" "}
                         <a
                             href="https://twitter.com/yourusername"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-blue-500 hover:text-blue-600"
+                            className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
                         >
                             Twitter
                         </a>{" "}
@@ -44,7 +44,7 @@ export default function HomePage() {
                             href="https://linkedin.com/in/yourusername"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-blue-500 hover:text-blue-600"
+                            className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
                         >
                             LinkedIn
                         </a>
@@ -55,18 +55,18 @@ export default function HomePage() {
 
             {/* Section 2: Current Projects */}
             <div className="mb-12">
-                <h1 className="font-medium text-2xl mb-4 tracking-tighter">
+                <h1 className="font-medium text-2xl mb-4 tracking-tighter dark:text-white">
                     what im working on
                 </h1>
-                <div className="prose prose-neutral dark:prose-invert">
-                    <p className="text-neutral-800 dark:text-neutral-200">
+                <div className="prose prose-invert">
+                    <p className="dark:text-neutral-200">
                         Here are some of the projects I'm currently focused on:
                     </p>
-                    <ul className="list-disc pl-4 text-neutral-800 dark:text-neutral-200 mt-2">
+                    <ul className="list-disc pl-4 dark:text-neutral-200 mt-2">
                         <li className="mb-2">
                             <Link
                                 href="/portfolio/project-one"
-                                className="text-blue-500 hover:text-blue-600 font-medium"
+                                className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
                             >
                                 Project One
                             </Link>{" "}
@@ -76,7 +76,7 @@ export default function HomePage() {
                         <li className="mb-2">
                             <Link
                                 href="/portfolio/project-two"
-                                className="text-blue-500 hover:text-blue-600 font-medium"
+                                className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
                             >
                                 Project Two
                             </Link>{" "}
@@ -88,7 +88,7 @@ export default function HomePage() {
                                 href="https://github.com/yourusername"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-blue-500 hover:text-blue-600 font-medium"
+                                className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
                             >
                                 Open Source Contributions
                             </a>{" "}
@@ -101,18 +101,18 @@ export default function HomePage() {
 
             {/* Section 3: Past Work */}
             <div className="mb-12">
-                <h1 className="font-medium text-2xl mb-4 tracking-tighter">
+                <h1 className="font-medium text-2xl mb-4 tracking-tighter dark:text-white">
                     in the past
                 </h1>
-                <div className="prose prose-neutral dark:prose-invert">
-                    <p className="text-neutral-800 dark:text-neutral-200">
+                <div className="prose prose-invert">
+                    <p className="dark:text-neutral-200">
                         Selected projects and experiences from my past work:
                     </p>
-                    <ul className="list-disc pl-4 text-neutral-800 dark:text-neutral-200 mt-2">
+                    <ul className="list-disc pl-4 dark:text-neutral-200 mt-2">
                         <li className="mb-2">
                             <Link
                                 href="/portfolio/project-three"
-                                className="text-blue-500 hover:text-blue-600 font-medium"
+                                className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
                             >
                                 Past Project One
                             </Link>{" "}
@@ -120,8 +120,10 @@ export default function HomePage() {
                             impact.
                         </li>
                         <li className="mb-2">
-                            <span className="font-medium">Company Name</span> —
-                            Your role and key accomplishments during your time
+                            <span className="font-medium dark:text-white">
+                                Company Name
+                            </span>{" "}
+                            — Your role and key accomplishments during your time
                             there.
                         </li>
                         <li className="mb-2">
@@ -129,7 +131,7 @@ export default function HomePage() {
                                 href="https://example.com/publication"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-blue-500 hover:text-blue-600 font-medium"
+                                className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
                             >
                                 Research Publication
                             </a>{" "}
@@ -139,7 +141,7 @@ export default function HomePage() {
                         <li>
                             <Link
                                 href="/resume"
-                                className="text-blue-500 hover:text-blue-600 font-medium"
+                                className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
                             >
                                 See my full resume
                             </Link>{" "}
