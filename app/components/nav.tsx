@@ -18,9 +18,9 @@ const navItems: NavItems = {
     "/portfolio": {
         name: "portfolio",
     },
-    "/values": {
-        name: "values",
-    },
+    // "/values": {
+    //     name: "values",
+    // },
     "/inspiration": {
         name: "inspiration",
     },

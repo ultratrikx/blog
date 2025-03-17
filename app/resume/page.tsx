@@ -11,12 +11,23 @@ export default function ResumePage() {
             <h1 className="font-medium text-2xl mb-8 tracking-tighter">
                 resume
             </h1>
-            <div className="prose prose-neutral dark:prose-invert">
+
+            {/* PDF preview */}
+            <div className="mb-12">
+                <iframe
+                    src="/resume.pdf"
+                    width="100%"
+                    height="600px"
+                    className="border rounded"
+                    title="rohanth's resume"
+                />
+            </div>
+
+            {/* <div className="prose prose-neutral dark:prose-invert">
                 <div className="mb-8">
                     <h2 className="text-xl font-medium">Summary</h2>
                     <p className="text-neutral-800 dark:text-neutral-200">
-                        A brief summary of your professional background and
-                        expertise.
+                        A brief summary of your professional background and expertise.
                     </p>
                 </div>
 
@@ -36,9 +47,7 @@ export default function ResumePage() {
                     </div>
 
                     <div className="mb-6">
-                        <h3 className="text-lg font-medium">
-                            Previous Job Title
-                        </h3>
+                        <h3 className="text-lg font-medium">Previous Job Title</h3>
                         <div className="text-sm text-neutral-500 dark:text-neutral-400">
                             Previous Company • 2018 - 2020
                         </div>
@@ -69,7 +78,7 @@ export default function ResumePage() {
                         <li>Skill 4</li>
                     </ul>
                 </div>
-            </div>
+            </div> */}
         </section>
     );
 }

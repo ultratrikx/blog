@@ -12,35 +12,37 @@ export default function InspirationPage() {
                 inspiration
             </h1>
             <div className="prose prose-neutral dark:prose-invert">
-                <h2>Creative Influences</h2>
+                {/* <h2>Creative Influences</h2>
                 <p>
                     My creative journey has been shaped by various influences
                     across different mediums and disciplines. These inspirations
                     have informed my perspective and approach to
                     problem-solving.
-                </p>
+                </p> */}
 
-                <h3>Key Inspirations</h3>
+                <h3>my top 3 goats</h3>
                 <ul>
                     <li>
-                        <strong>Richard Feynman</strong> — His approach to
-                        breaking down complex concepts into simple,
-                        understandable parts has influenced my thinking and
-                        communication style.
+                        <strong>Richard Hamming</strong> — his ideas on
+                        cultivating technical curiosity and the importance
+                        understanding the principles behind the work you do
+                        resonate with me in my projects
                     </li>
                     <li>
-                        <strong>Alan Kay</strong> — His vision of computing as a
-                        medium for learning and creativity continues to shape my
-                        view of technology's potential.
+                        <strong>James Vowles</strong> — his leadership and
+                        compsure when bringing back the williams f1 team to its
+                        former glory inspire me to do the same in my work. his
+                        attention to detail and focus on long-term results are
+                        qualities i admire.
                     </li>
                     <li>
-                        <strong>Dieter Rams</strong> — His design principles of
-                        simplicity, honesty, and usefulness guide my aesthetic
-                        sensibilities.
+                        <strong>Kobe</strong> — his work ethic and dedication to
+                        his craft are qualities i strive to emulate in my work
+                        and sport.
                     </li>
                 </ul>
 
-                <h2>Books That Changed My Thinking</h2>
+                {/* <h2>Books That Changed My Thinking</h2>
                 <p>
                     These books have been particularly influential in shaping my
                     worldview and approach to work:
@@ -62,9 +64,9 @@ export default function InspirationPage() {
                         Hofstadter — Opened my mind to connections between
                         mathematics, art, and consciousness.
                     </li>
-                </ul>
+                </ul> */}
 
-                <h2>Technical Inspirations</h2>
+                {/* <h2>Technical Inspirations</h2>
                 <p>
                     In the realm of software and technology, I find inspiration
                     in:
@@ -100,7 +102,7 @@ export default function InspirationPage() {
                     I believe that technology should serve human needs, that
                     complexity should be managed through thoughtful abstraction,
                     and that good design often means knowing what to leave out.
-                </p>
+                </p> */}
             </div>
         </section>
     );

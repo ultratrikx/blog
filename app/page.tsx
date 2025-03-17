@@ -17,13 +17,15 @@ export default function HomePage() {
                 </h1>
                 <div className="prose prose-invert">
                     <p className="dark:text-neutral-200">
-                        i'm a high school stduent passionate about robotics,
-                        drones, machine learning and building things that
-                        matter. this is my public notebook i share my work,
-                        thoughts and experiences.
+                        i'm a 17y/o high school student passionate about
+                        robotics, drones, machine learning and building things
+                        that matter. also sidequesting to make the panams in
+                        karate. i love f1, matcha and celsius. based close
+                        enough to toronto
                     </p>
                     <p className="dark:text-neutral-200">
-                        currently based in Toronto.
+                        this is my public notebook i share my work, thoughts and
+                        experiences.
                     </p>
                     <p className="dark:text-neutral-200">
                         feel free to reach out to me on{" "}
@@ -65,7 +67,23 @@ export default function HomePage() {
                             >
                                 TensorForest
                             </Link>{" "}
-                            — ai drones that create climate insights
+                            — building ai drones that create insights to combat
+                            climate change. funded $5000 by{" "}
+                            <Link
+                                href="https://www.bloomberg.org/government-innovation/spurring-innovation-in-cities/youth-climate-action-fund/"
+                                className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
+                            >
+                                {" "}
+                                bloomberg philanthropies
+                            </Link>{" "}
+                            and backed by the{" "}
+                            <Link
+                                href="https://www.oakville.ca/town-hall/news-notices/2024-mayor-s-news-archive/mayor-rob-burton-announces-winners-of-the-2024-youth-climate-action-fund/"
+                                className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
+                            >
+                                town of oakville
+                            </Link>
+                            .
                         </li>
                         <li className="mb-2">
                             <Link
@@ -75,7 +93,9 @@ export default function HomePage() {
                                 8433 VEX Robotics
                             </Link>{" "}
                             — leading a team of freshman in building high stakes
-                            robots
+                            VEX robots. top 5 in canada, only public hs team
+                            from ontario to qualify to world championships.
+                            waterloo competition build award winners.
                         </li>
                         {/* <li>
                             <a
@@ -93,44 +113,46 @@ export default function HomePage() {
                 </div>
             </div>
 
-            {/* Section 3: Past Work
+            {/* Section 3: Past Work */}
             <div className="mb-12">
                 <h1 className="font-medium text-2xl mb-4 tracking-tighter dark:text-white">
-                    in the past
+                    some other shennanigans
                 </h1>
                 <div className="prose prose-invert">
                     <p className="dark:text-neutral-200">
-                        i've done some things:
+                        i've also done some other things:
                     </p>
                     <ul className="list-disc pl-4 dark:text-neutral-200 mt-2">
                         <li className="mb-2">
                             <Link
-                                href="/portfolio/project-three"
+                                href="https://karatecanada.org/"
                                 className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
                             >
-                                Past Project One
+                                Karate Nationals Qualifier
                             </Link>{" "}
-                            — What you accomplished, technologies used, and its
-                            impact.
+                            — elite kata athlete in karate, qualified for the
+                            karate canada national champions in vancouver this
+                            year. representing team ontario.
+                        </li>
+                        <li className="mb-2">
+                            <Link
+                                href="https://www.deca.org/conferences/icdc"
+                                className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
+                            >
+                                DECA ICDC '25
+                            </Link>{" "}
+                            — 2x regional champ, current provincial champion in
+                            buying and merchandising marketing. heading to
+                            orlando for internationals.
                         </li>
                         <li className="mb-2">
                             <span className="font-medium dark:text-white">
-                                Company Name
+                                Ontario Science Centre Volunteer
                             </span>{" "}
-                            — Your role and key accomplishments during your time
-                            there.
-                        </li>
-                        <li className="mb-2">
-                            <a
-                                href="https://example.com/publication"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
-                            >
-                                Research Publication
-                            </a>{" "}
-                            — Any research papers or significant publications
-                            you've contributed to.
+                            — spent time volunteering at the science centre over
+                            the summer, helping out with the exhibits and
+                            teaching the science behind them. at least i was
+                            until the place got shutdown.
                         </li>
                         <li>
                             <Link
@@ -139,11 +161,12 @@ export default function HomePage() {
                             >
                                 See my full resume
                             </Link>{" "}
-                            for more details about my past work and education.
+                            for more details about my past work, education and
+                            accolades.
                         </li>
                     </ul>
                 </div>
-            </div> */}
+            </div>
             {/* <div className="my-8">
                 <BlogPosts />
             </div> */}
