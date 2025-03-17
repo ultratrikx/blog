@@ -95,26 +95,71 @@ function slugify(str: string): string {
         .replace(/\-\-+/g, "-");
 }
 
-// Update heading components to match MDX expectations
+// Update heading components to properly handle element types
 function createHeading(level: number) {
-    return function Heading(props: React.HTMLAttributes<HTMLHeadingElement>) {
-        const { children, ...rest } = props;
-        const text = children
-            ? typeof children === "string"
-                ? children
-                : String(children)
-            : "";
+    return function Heading({
+        children,
+        ...rest
+    }: {
+        children: React.ReactNode;
+        [key: string]: any;
+    }) {
+        const text = typeof children === "string" ? children : "";
         const slug = slugify(text);
 
-        const TagName = `h${level}` as keyof JSX.IntrinsicElements;
-
+        // Explicitly define the heading element type based on level
+        if (level === 1)
+            return (
+                <h1 id={slug} {...rest}>
+                    {children}
+                    <a href={`#${slug}`} className="anchor">
+                        <span className="anchor-icon">#</span>
+                    </a>
+                </h1>
+            );
+        if (level === 2)
+            return (
+                <h2 id={slug} {...rest}>
+                    {children}
+                    <a href={`#${slug}`} className="anchor">
+                        <span className="anchor-icon">#</span>
+                    </a>
+                </h2>
+            );
+        if (level === 3)
+            return (
+                <h3 id={slug} {...rest}>
+                    {children}
+                    <a href={`#${slug}`} className="anchor">
+                        <span className="anchor-icon">#</span>
+                    </a>
+                </h3>
+            );
+        if (level === 4)
+            return (
+                <h4 id={slug} {...rest}>
+                    {children}
+                    <a href={`#${slug}`} className="anchor">
+                        <span className="anchor-icon">#</span>
+                    </a>
+                </h4>
+            );
+        if (level === 5)
+            return (
+                <h5 id={slug} {...rest}>
+                    {children}
+                    <a href={`#${slug}`} className="anchor">
+                        <span className="anchor-icon">#</span>
+                    </a>
+                </h5>
+            );
         return (
-            <TagName id={slug} {...rest}>
+            <h6 id={slug} {...rest}>
                 {children}
                 <a href={`#${slug}`} className="anchor">
                     <span className="anchor-icon">#</span>
                 </a>
-            </TagName>
+            </h6>
         );
     };
 }
