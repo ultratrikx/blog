@@ -5,8 +5,14 @@ import path from "path";
 export async function GET(
     request: NextRequest,
     { params }: { params: { imageName: string } }
-) {
+): Promise<NextResponse> {
     const imageName = params.imageName;
+
+    // Check for path traversal attempts
+    if (imageName.includes("../") || imageName.includes("..\\")) {
+        return new NextResponse("Invalid image name", { status: 400 });
+    }
+
     const projectsDirectory = path.join(process.cwd(), "projects");
     const imagePath = path.join(projectsDirectory, "images", imageName);
 

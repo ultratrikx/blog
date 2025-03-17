@@ -1,17 +1,29 @@
-import { getBlogPosts } from 'app/blog/utils'
+import { getBlogPosts } from "./blog/utils";
+import { MetadataRoute } from "next";
 
-export const baseUrl = 'https://www.rohanth.co'
+// Define the base URL - change this to your production URL
+export const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL || "https://rohanth-marem.com";
 
-export default async function sitemap() {
-  let blogs = getBlogPosts().map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: post.metadata.publishedAt,
-  }))
+export default function sitemap(): MetadataRoute.Sitemap {
+    const posts = getBlogPosts();
 
-  let routes = ['', '/blog'].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString().split('T')[0],
-  }))
+    const blogEntries = posts.map((post) => ({
+        url: `${baseUrl}/blog/${post.slug}`,
+        lastModified: new Date(post.metadata.publishedAt),
+    }));
 
-  return [...routes, ...blogs]
+    const routes = [
+        "",
+        "/blog",
+        "/portfolio",
+        "/values",
+        "/inspiration",
+        "/resume",
+    ].map((route) => ({
+        url: `${baseUrl}${route}`,
+        lastModified: new Date(),
+    }));
+
+    return [...routes, ...blogEntries];
 }

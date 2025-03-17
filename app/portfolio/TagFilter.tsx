@@ -7,23 +7,23 @@ type TagFilterProps = {
     tags: string[];
 };
 
-export default function TagFilter({ tags }: TagFilterProps) {
+export default function TagFilter({ tags }: TagFilterProps): JSX.Element {
     const router = useRouter();
-    const pathname = usePathname();
+    const pathname = usePathname() || "";
     const searchParams = useSearchParams();
 
     // Get active tags from URL
     const activeTags =
-        searchParams.get("tags")?.split(",").filter(Boolean) || [];
+        searchParams?.get("tags")?.split(",").filter(Boolean) || [];
 
     // Toggle a tag's active state
-    const toggleTag = (tag: string) => {
+    const toggleTag = (tag: string): void => {
         const newActiveTags = activeTags.includes(tag)
             ? activeTags.filter((t) => t !== tag)
             : [...activeTags, tag];
 
         // Update URL with new active tags
-        const params = new URLSearchParams(searchParams);
+        const params = new URLSearchParams(searchParams?.toString() || "");
         if (newActiveTags.length > 0) {
             params.set("tags", newActiveTags.join(","));
         } else {
@@ -34,8 +34,8 @@ export default function TagFilter({ tags }: TagFilterProps) {
     };
 
     // Clear all active filters
-    const clearFilters = () => {
-        const params = new URLSearchParams(searchParams);
+    const clearFilters = (): void => {
+        const params = new URLSearchParams(searchParams?.toString() || "");
         params.delete("tags");
         router.replace(pathname);
     };

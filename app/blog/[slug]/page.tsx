@@ -1,29 +1,33 @@
 import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
-import { formatDate, getBlogPosts } from "app/blog/utils";
+import { formatDate, getBlogPosts, type BlogPost } from "app/blog/utils";
 import { baseUrl } from "app/sitemap";
+import { Metadata } from "next";
 
 export async function generateStaticParams() {
-    let posts = getBlogPosts();
-
+    const posts = getBlogPosts();
     return posts.map((post) => ({
         slug: post.slug,
     }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-    let post = getBlogPosts().find((post) => post.slug === params.slug);
+interface PageParams {
+    params: { slug: string };
+}
+
+export function generateMetadata({ params }: PageParams): Metadata | undefined {
+    const post = getBlogPosts().find((post) => post.slug === params.slug);
     if (!post) {
-        return;
+        return undefined;
     }
 
-    let {
+    const {
         title,
         publishedAt: publishedTime,
         summary: description,
         image,
     } = post.metadata;
-    let ogImage = image
+    const ogImage = image
         ? image
         : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
@@ -51,8 +55,8 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
     };
 }
 
-export default function Blog({ params }: { params: { slug: string } }) {
-    let post = getBlogPosts().find((post) => post.slug === params.slug);
+export default function BlogPost({ params }: PageParams): JSX.Element {
+    const post = getBlogPosts().find((post) => post.slug === params.slug);
 
     if (!post) {
         notFound();
@@ -73,13 +77,13 @@ export default function Blog({ params }: { params: { slug: string } }) {
                         description: post.metadata.summary,
                         image: post.metadata.image
                             ? `${baseUrl}${post.metadata.image}`
-                            : `/og?title=${encodeURIComponent(
+                            : `${baseUrl}/og?title=${encodeURIComponent(
                                   post.metadata.title
                               )}`,
                         url: `${baseUrl}/blog/${post.slug}`,
                         author: {
                             "@type": "Person",
-                            name: "My Portfolio",
+                            name: "Rohanth Marem",
                         },
                     }),
                 }}

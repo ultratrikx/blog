@@ -1,6 +1,14 @@
 import Link from "next/link";
 
-const navItems = {
+type NavItem = {
+    name: string;
+};
+
+type NavItems = {
+    [path: string]: NavItem;
+};
+
+const navItems: NavItems = {
     "/": {
         name: "home",
     },
@@ -19,12 +27,9 @@ const navItems = {
     "/resume": {
         name: "resume",
     },
-    // 'https://vercel.com/templates/next.js/portfolio-starter-kit': {
-    //   name: 'deploy',
-    // },
 };
 
-export function Navbar() {
+export function Navbar(): JSX.Element {
     return (
         <aside className="-ml-[8px] mb-16 tracking-tight">
             <div className="lg:sticky lg:top-20">
