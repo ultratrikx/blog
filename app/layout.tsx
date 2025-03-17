@@ -38,6 +38,7 @@ export const metadata: Metadata = {
 
 const cx = (...classes: string[]) => classes.filter(Boolean).join(" ");
 
+// Remove the beforeSend prop to avoid passing a function directly to a Client Component.
 export default function RootLayout({
     children,
 }: {
@@ -57,14 +58,7 @@ export default function RootLayout({
                     <Navbar />
                     {children}
                     <Footer />
-                    <Analytics
-                        debug={process.env.NODE_ENV === "development"}
-                        beforeSend={(event) => {
-                            // You can modify events before they're sent
-                            // For example: exclude certain pages
-                            return event;
-                        }}
-                    />
+                    <Analytics debug={process.env.NODE_ENV === "development"} />
                     <SpeedInsights />
                 </main>
 
@@ -73,7 +67,6 @@ export default function RootLayout({
                     dangerouslySetInnerHTML={{
                         __html: `
                             (function() {
-                                // On page load, check localStorage for theme preference or default to dark
                                 const savedTheme = localStorage.getItem('theme');
                                 if (savedTheme) {
                                     document.documentElement.classList.remove('light', 'dark');
