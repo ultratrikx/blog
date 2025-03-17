@@ -13,26 +13,24 @@ export default function HomePage() {
             {/* Section 1: Introduction */}
             <div className="mb-12">
                 <h1 className="font-medium text-2xl mb-4 tracking-tighter dark:text-white">
-                    hey im rohanth
+                    hey i'm rohanth
                 </h1>
                 <div className="prose prose-invert">
                     <p className="dark:text-neutral-200">
-                        I'm a software engineer and researcher passionate about
-                        technology, machine learning, and building solutions
-                        that matter. Welcome to my personal corner of the
-                        internet where I share my work, thoughts, and
-                        experiences.
+                        i'm a high school stduent passionate about robotics,
+                        drones, machine learning and building things that
+                        matter. this is my public notebook i share my work,
+                        thoughts and experiences.
                     </p>
                     <p className="dark:text-neutral-200">
-                        Currently based in [City], where I [brief statement
-                        about what you do]. I enjoy exploring the intersection
-                        of [your interests, e.g., "technology and design" or "AI
-                        and healthcare"].
+                        currently based in [Toronto]. I enjoy exploring the
+                        intersection of [your interests, e.g., "technology and
+                        design" or "AI and healthcare"].
                     </p>
                     <p className="dark:text-neutral-200">
-                        Feel free to reach out to me on{" "}
+                        feel free to reach out to me on{" "}
                         <a
-                            href="https://twitter.com/yourusername"
+                            href="https://twitter.com/rohanthmarem"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
@@ -41,7 +39,7 @@ export default function HomePage() {
                         </a>{" "}
                         or{" "}
                         <a
-                            href="https://linkedin.com/in/yourusername"
+                            href="https://linkedin.com/in/rohanth-marem"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
@@ -52,7 +50,6 @@ export default function HomePage() {
                     </p>
                 </div>
             </div>
-
             {/* Section 2: Current Projects */}
             <div className="mb-12">
                 <h1 className="font-medium text-2xl mb-4 tracking-tighter dark:text-white">
@@ -60,32 +57,31 @@ export default function HomePage() {
                 </h1>
                 <div className="prose prose-invert">
                     <p className="dark:text-neutral-200">
-                        Here are some of the projects I'm currently focused on:
+                        lately i've been doing a couple things:
                     </p>
                     <ul className="list-disc pl-4 dark:text-neutral-200 mt-2">
                         <li className="mb-2">
                             <Link
-                                href="/portfolio/project-one"
+                                href="/portfolio/tensorforest"
                                 className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
                             >
-                                Project One
+                                TensorForest
                             </Link>{" "}
-                            — A brief description of what this project is about
-                            and what technologies you're using.
+                            — ai drones that create climate insights
                         </li>
                         <li className="mb-2">
                             <Link
-                                href="/portfolio/project-two"
+                                href="/portfolio/woss-robotics"
                                 className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
                             >
-                                Project Two
+                                8433 VEX Robotics
                             </Link>{" "}
-                            — Another exciting project you're working on with
-                            some details about its purpose.
+                            — leading a team of freshman in building high stakes
+                            robots
                         </li>
-                        <li>
+                        {/* <li>
                             <a
-                                href="https://github.com/yourusername"
+                                href="https://github.com/ultratrikx"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="font-medium dark:text-white no-underline [text-decoration:none!important] relative after:absolute after:bg-blue-500 after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:text-blue-500"
@@ -94,19 +90,19 @@ export default function HomePage() {
                             </a>{" "}
                             — Details about any open source projects you're
                             contributing to.
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </div>
 
-            {/* Section 3: Past Work */}
+            {/* Section 3: Past Work
             <div className="mb-12">
                 <h1 className="font-medium text-2xl mb-4 tracking-tighter dark:text-white">
                     in the past
                 </h1>
                 <div className="prose prose-invert">
                     <p className="dark:text-neutral-200">
-                        Selected projects and experiences from my past work:
+                        i've done some things:
                     </p>
                     <ul className="list-disc pl-4 dark:text-neutral-200 mt-2">
                         <li className="mb-2">
@@ -149,8 +145,7 @@ export default function HomePage() {
                         </li>
                     </ul>
                 </div>
-            </div>
-
+            </div> */}
             {/* <div className="my-8">
                 <BlogPosts />
             </div> */}
