@@ -4,12 +4,14 @@ const nextConfig = {
     reactStrictMode: true,
     images: {
         domains: [
-            // Add any external image domains you're using
+            // Add domains for external images
+            "github.com",
+            "raw.githubusercontent.com",
         ],
         formats: ["image/avif", "image/webp"],
         deviceSizes: [640, 750, 828, 1080, 1200, 1920],
         imageSizes: [16, 32, 48, 64, 96, 128, 256],
-        // Disable remote patterns for simpler configuration
+        // Allow unoptimized images in development for faster builds
         unoptimized: process.env.NODE_ENV === "development",
     },
     // More efficient webpack configuration

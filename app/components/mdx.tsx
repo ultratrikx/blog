@@ -64,9 +64,50 @@ function CustomLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
     );
 }
 
-// Updated to match Next.js Image component props
+// Updated to match Next.js Image component props with better handling of GitHub images
 function RoundedImage(props: React.ComponentProps<typeof Image>) {
-    return <Image className="rounded-lg" {...props} />;
+    // Extract src to check if it's a GitHub image
+    const { src, alt, width, height, ...rest } = props;
+
+    // Default dimensions - especially important for GitHub images
+    const defaultWidth = 800;
+    const defaultHeight = 600;
+
+    // Check if it's a GitHub image
+    const isGitHubImage =
+        typeof src === "string" &&
+        (src.includes("github.com") ||
+            src.includes("raw.githubusercontent.com"));
+
+    if (isGitHubImage) {
+        // For GitHub images, use an img tag instead of next/image to avoid optimization issues
+        return (
+            <img
+                src={src}
+                alt={alt || ""}
+                width={width || defaultWidth}
+                height={height || defaultHeight}
+                style={{
+                    borderRadius: "0.5rem",
+                    maxWidth: "100%",
+                    height: "auto",
+                }}
+                loading="lazy"
+            />
+        );
+    }
+
+    // For regular images, use next/image with proper dimensions
+    return (
+        <Image
+            src={src}
+            alt={alt || ""}
+            width={width || defaultWidth}
+            height={height || defaultHeight}
+            className="rounded-lg"
+            {...rest}
+        />
+    );
 }
 
 // Fix the code component to match MDXRemote expectations
@@ -172,7 +213,7 @@ const components = {
     h4: createHeading(4),
     h5: createHeading(5),
     h6: createHeading(6),
-    img: RoundedImage, // Changed from Image to img to match MDX expectations
+    img: RoundedImage, // This handles both standard <img> tags and Next.js Image component
     a: CustomLink,
     code: Code,
     table: (props: React.TableHTMLAttributes<HTMLTableElement>) => (
