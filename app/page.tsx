@@ -4,7 +4,7 @@ import { BlogPosts } from "app/components/posts";
 
 export const metadata: Metadata = {
     title: "rohanth marem",
-    description: "Personal website and blog",
+    description: "personal website and notes",
 };
 
 export default function HomePage() {
